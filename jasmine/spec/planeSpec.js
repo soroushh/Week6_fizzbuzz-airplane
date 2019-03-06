@@ -15,4 +15,13 @@ describe('Plane', function(){
 
   });
   });
+  describe("when a plane has takne_off, it is not on land" , function(){
+    it("When a palne takes off, it's on ground status will be false",function(){
+    plane = new Plane ;
+    var airport;
+    plane.taken_off();
+    expect(plane._onGround).toBe(false);
+
+  });
+  });
 });
