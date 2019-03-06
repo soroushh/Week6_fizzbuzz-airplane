@@ -4,7 +4,9 @@ describe("airport", function() {
     airport = new Airport ;
     var plane ;
     plane = {
-      landed: function(){}
+      landed: function(){},
+      taken_off: function(){},
+      weather: function(){}
     };
     spyOn(plane,"landed");
     airport.land(plane);
@@ -19,7 +21,8 @@ describe("airport", function() {
     var plane ;
     plane = {
       landed: function(){},
-      taken_off: function(){}
+      taken_off: function(){},
+      weather: function(){}
     };
     spyOn(plane,"landed");
     airport.land(plane);
@@ -30,5 +33,34 @@ describe("airport", function() {
     expect(plane.taken_off).toHaveBeenCalled();
   });
   });
+  describe("taking_off is impossible in stormy weather",function(){
+  it("When it is stormy, a plane can not take_off",function(){
+    airport = new Airport ;
+    var plane ;
+    plane = {
+      landed: function(){},
+      taken_off: function(){},
+      weather: function(){}
+    };
+    spyOn(plane,"weather").and.returnValue("stormy");
+    expect(function(){airport.take_off(plane)}).toThrowError("It can not take_off");
+  });
+  });
+
+  describe("landing is impossible in stormy weather",function(){
+  it("When it is stormy, a plane can not take_off",function(){
+    airport = new Airport ;
+    var plane ;
+    plane = {
+      landed: function(){},
+      taken_off: function(){},
+      weather: function(){}
+    };
+    spyOn(plane,"weather").and.returnValue("stormy");
+    expect(function(){airport.land(plane)}).toThrowError("It can not land");
+  });
+  });
+
+
 
 });

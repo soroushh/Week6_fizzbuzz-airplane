@@ -21,7 +21,6 @@ describe('Plane', function(){
     var airport;
     plane.taken_off();
     expect(plane._onGround).toBe(false);
-
   });
   });
 });

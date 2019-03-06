@@ -9,3 +9,7 @@ Plane.prototype.landed = function(){
 Plane.prototype.taken_off = function(){
   this._onGround = false;
 };
+
+Plane.prototype.weather = function(){
+
+}
